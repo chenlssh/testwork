@@ -12,6 +12,6 @@
 <body>
 <h1>WelCome to Spittle</h1>
 <a href="/spittle">Spittles </a>
-<a href="/spittle/register">Register </a>
+<a href="/spitter/register">Register </a>
 </body>
 </html>
