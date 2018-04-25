@@ -1,4 +1,4 @@
-package spittr;
+package spittr.model;
 
 
 import javax.validation.constraints.NotNull;

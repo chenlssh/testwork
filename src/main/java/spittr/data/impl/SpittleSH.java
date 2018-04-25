@@ -1,7 +1,8 @@
-package spittr.data;
+package spittr.data.impl;
 
 import org.springframework.stereotype.Component;
-import spittr.Spittle;
+import spittr.data.SpittleRepository;
+import spittr.model.Spittle;
 
 import java.util.ArrayList;
 import java.util.Date;
