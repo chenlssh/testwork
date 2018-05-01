@@ -21,8 +21,12 @@ public class SpitterLS implements SpitterRepository {
         this.sqlSessionFactory = sqlSessionFactoryBean;
     }
 
-    public Spitter save(Spitter spitter) {
-        return null;
+    public boolean saveSpitter(Spitter spitter) {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        if(sqlSession.insert("spittr.data.SpitterRepository.saveSpitter",spitter) > 0){
+            return true;
+        }
+        return false;
     }
 
     public Spitter findByUserName(String userName) {

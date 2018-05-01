@@ -12,4 +12,8 @@
     <select id="findByUserName" resultMap="SpitterResultMap" parameterType="java.lang.String" >
         select * from Spitter where userName = #{userName,jdbcType=VARCHAR}
     </select>
+    <insert id="saveSpitter">
+        INSERT Spitter(userName,password,firstName,lastName)
+         VALUE (#{userName},#{password},#{firstName},#{lastName})
+    </insert>
 </mapper>

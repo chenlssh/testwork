@@ -5,11 +5,11 @@
         <id column="id" property="id" jdbcType="INTEGER" />
         <result column="message" property="message" jdbcType="VARCHAR" />
         <result column="time" property="time" jdbcType="DATE" />
-        <result column="latitude" property="latitude" jdbcType="VARCHAR" />
-        <result column="longitude" property="longitude" jdbcType="VARCHAR" />
+        <result column="latitude" property="latitude" jdbcType="DOUBLE" />
+        <result column="longitude" property="longitude" jdbcType="DOUBLE" />
     </resultMap>
 
     <select id="findSpittles" resultMap="SpittleResultMap"  >
-        select * from Spittle where id < #{max} AND LIMIT #{count}
+        <![CDATA[ select * from Spittle where id  < #{max} LIMIT #{count} ]]>
     </select>
 </mapper>

@@ -15,7 +15,7 @@ public class Spitter {
 
 //    @NotNull
 //    @Size(min = 5,max = 25)
-    private String password;
+    private String passWord;
 
 //    @NotNull
 //    @Size(min = 2,max = 30)
@@ -29,7 +29,7 @@ public class Spitter {
 
     public Spitter(String userName,String password,String firstName,String lastName){
         this.userName = userName;
-        this.password = password;
+        this.passWord = password;
         this.firstName = firstName;
         this.lastName = lastName;
     }
@@ -55,16 +55,16 @@ public class Spitter {
         this.userName = userName;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getFirstName() {
         return firstName;
+    }
+
+    public String getPassWord() {
+        return passWord;
+    }
+
+    public void setPassWord(String passWord) {
+        this.passWord = passWord;
     }
 
     public void setFirstName(String firstName) {

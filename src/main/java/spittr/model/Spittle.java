@@ -3,7 +3,8 @@ package spittr.model;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import java.util.Date;
+import java.sql.Date;
+
 
 /**
  * Created by admin on 2018-02-05.
@@ -15,7 +16,7 @@ public class Spittle {
     private Double latitude;
     private Double longitude;
 
-    public Spittle(String message,Date time,Double latitude,Double longitude){
+    public Spittle(Long id,String message,Date time,Double latitude,Double longitude){
         this.id = null;
         this.message = message;
         this.time = time;
@@ -24,8 +25,9 @@ public class Spittle {
     }
 
     public Spittle(String message,Date time){
-        this(message,time,null,null);
+        this(null,message,time,null,null);
     }
+
     public Long getId() {
         return id;
     }
