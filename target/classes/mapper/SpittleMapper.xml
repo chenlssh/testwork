@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="spittr.data.SpittleRepository" >
+    <resultMap id="SpittleResultMap" type="spittr.model.Spittle" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="message" property="message" jdbcType="VARCHAR" />
+        <result column="time" property="time" jdbcType="DATE" />
+        <result column="latitude" property="latitude" jdbcType="DOUBLE" />
+        <result column="longitude" property="longitude" jdbcType="DOUBLE" />
+    </resultMap>
+
+    <select id="findSpittles" resultMap="SpittleResultMap"  >
+        <![CDATA[ select * from Spittle where id  < #{max} LIMIT #{count} ]]>
+    </select>
+</mapper>
