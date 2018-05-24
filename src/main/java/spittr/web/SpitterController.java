@@ -1,12 +1,15 @@
 package spittr.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import spittr.data.UserRepositury;
 import spittr.model.Spitter;
 import spittr.data.SpitterRepository;
+import spittr.model.User;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -19,7 +22,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 public class SpitterController {
 
     private SpitterRepository spitterRepository;
-
+    private UserRepositury userRepositury;
     @Autowired
     public SpitterController(SpitterRepository spitterRepository){
         this.spitterRepository = spitterRepository;
@@ -31,17 +34,21 @@ public class SpitterController {
     }
 
     @RequestMapping(value = "/register",method = POST)
-    public String processRegistration(Spitter spitter){
-        System.out.println(spitter.getUserName());
-        Spitter tempSpitter1 = new Spitter();
-        spitterRepository.saveSpitter(spitter);
-        return "redirect:/spitter/"+spitter.getUserName();
+    public String processRegistration(User user){
+        System.out.println(user.getUserName());
+        userRepositury.saveUser(user);
+        return "redirect:/spitter/"+user.getUserName();
     }
 
     @RequestMapping(value = "/{userName}",method = GET)
     public String showSpitterProfile(@PathVariable("userName") String userName, Model model){
-        Spitter spitter = spitterRepository.findByUserName(userName);
-        model.addAttribute(spitter);
+        User user = userRepositury.findByUserName(userName);
+        model.addAttribute(user);
         return "profile";
+    }
+    @Autowired
+    @Qualifier("userAction")
+    public void setUserRepositury(UserRepositury userRepositury) {
+        this.userRepositury = userRepositury;
     }
 }

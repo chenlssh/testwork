@@ -10,8 +10,13 @@
   <title>$Title$</title>
 </head>
 <body>
-<h1>WelCome to Spittle</h1>
-<a href="/spittles">Spittles </a>
-<a href="/spitter/register">Register </a>
+<h1>WelCome to CLS'SYSTEM</h1>
+<form method="post" action="/login">
+  用户名: <input type="text" name="userName" /> <br>
+  密  码: <input type="text" name="passWord" /> <br>
+  <input type="submit" value="登录" />
+    <a href="/spitter/register">Register </a>
+</form>
+<%--<a href="/spittles">Spittles </a>--%>
 </body>
 </html>

@@ -13,11 +13,10 @@
 </head>
 <body>
 <form method="post">
-  First Name: <input type="text" name="firstName" /> <br>
-  Last Name: <input type="text" name="lastName" /> <br>
   UserName: <input type="text" name="userName" /> <br>
   PassWord: <input type="password" name="passWord" /> <br>
-  <input type="submit" value="Resister" />
+  NickName: <input type="text" name="nickName" /> <br>
+  <input type="submit" value="register" />
 </form>
 </body>
 </html>

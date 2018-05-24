@@ -13,8 +13,6 @@
 </head>
 <body>
     <h1>Welcome Spittle</h1>
-    <c:out value="${spitter.userName}" />
-    <c:out value="${spitter.firstName}" />
-    <c:out value="${spitter.lastName}" />
+    欢迎<c:out value="${user.userName}" />
 </body>
 </html>
