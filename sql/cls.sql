@@ -3,14 +3,13 @@ create table Spitter
 (
 	id bigint not null auto_increment
 		primary key,
-	userName  varchar(50) not null,
-	password  varchar(50) null,
+	userName  varchar(50) not null comment '用户名',
+	password  varchar(50) null comment '用户名',
   firstName varchar(50) null,
   lastName  varchar(50) null
 );
 
-comment on column Spitter.userName is 'y用户名';
-comment on column Spitter.password is '密码';
+
 
 INSERT Spitter(userName,password,firstName,lastName)
 	VALUES
@@ -23,14 +22,13 @@ DROP TABLE IF EXISTS Spittle;
 create table Spittle
 (
 	id 				 bigint not null auto_increment primary key,
-	message    varchar(50) NOT NULL,
-	time  		 DATE        NOT NULL,
+	message    varchar(50) NOT NULL comment '消息内容',
+	time  		 DATE        NOT NULL comment '消息产生时间',
   latitude   DOUBLE null,
   longitude  DOUBLE null
 );
 
-comment on column Spittle.message is '消息内容';
-comment on column Spittle.time is '消息产生时间';
+
 
 INSERT Spittle(message,time,latitude,longitude)
 	VALUES
@@ -75,3 +73,25 @@ INSERT Spittle(message,time,latitude,longitude)
 ('试验038','2018-04-16',NULL ,NULL ),
 ('试验039','2018-04-16',NULL ,NULL ),
 ('试验040','2018-04-16',NULL ,NULL );
+
+drop table if exists DailyReport;
+
+create table DailyReport(
+	serialNo int auto_increment primary key ,
+	userName varchar(20) not null comment '用户名',
+	jobContent varchar(500) comment '工作内容',
+	startDate	date not null comment '任务开始时间',
+	finishDate date not null comment '任务结束时间',
+	duration	varchar(20) not null comment '任务持续时间',
+	timeUint	varchar(2) not null comment '时间单位(D：天，H：小时)',
+	eventType	varchar(2) not null comment '时间类型'
+);
+
+drop table if exists user;
+
+create table user(
+	id int auto_increment primary key not null ,
+	userName	varchar(20) not null comment '用户名',
+	password	varchar(50) not null ,
+	nickName varchar(100) not null comment '昵称'
+)

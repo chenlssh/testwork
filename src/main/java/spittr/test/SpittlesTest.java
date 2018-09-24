@@ -7,7 +7,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceView;
-import spittr.Spittle;
+import spittr.model.Spittle;
 import spittr.data.SpittleRepository;
 import spittr.web.SpittleController;
 
@@ -43,7 +43,7 @@ public class SpittlesTest {
     private List<Spittle> createSpittleList(int count){
         List<Spittle> spittleList = new ArrayList<Spittle>();
         for(int i = 0; i < count; i++){
-            spittleList.add(new Spittle("Spittle"+i,new Date()));
+            spittleList.add(new Spittle("Spittle"+i,new java.sql.Date(new java.util.Date().getTime())));
         }
         return spittleList;
     }

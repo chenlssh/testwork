@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="spittr.data.DailyReportRepository" >
+    <resultMap id="DailyReportMap" type="spittr.model.DailyReport" >
+        <id column="serialNo" property="serialNo" jdbcType="INTEGER" />
+        <result column="userName" property="userName" jdbcType="VARCHAR" />
+        <result column="jobContent" property="jobContent" jdbcType="VARCHAR" />
+        <result column="startDate" property="startDate" jdbcType="DATE" />
+        <result column="finishDate" property="finishDate" jdbcType="DATE" />
+        <result column="duration" property="duration" jdbcType="VARCHAR" />
+        <result column="timeUint" property="timeUint" jdbcType="VARCHAR" />
+        <result column="eventType" property="eventType" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <select id="findDailyReportByUser" resultMap="DailyReportMap" >
+         select * from dailyreport where userName  = #{userName}
+    </select>
+    <!--<insert id="saveUser" >-->
+        <!--INSERT cls_user(userName,passWord,nickName) VALUE (#{userName},#{passWord},#{nickName})-->
+    <!--</insert>-->
+</mapper>

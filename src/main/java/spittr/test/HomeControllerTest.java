@@ -1,4 +1,4 @@
-package spittr.web;
+package spittr.test;
 
 import jdk.nashorn.internal.ir.GetSplitState;
 import junit.framework.Assert;
@@ -10,6 +10,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder;
 import org.springframework.web.servlet.View;
+import spittr.web.HomeController;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
