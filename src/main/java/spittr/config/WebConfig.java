@@ -1,21 +1,12 @@
 package spittr.config;
 
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.http.MediaType;
 import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import org.springframework.web.servlet.view.InternalResourceView;
+import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
-
-import javax.sql.DataSource;
-import java.io.IOException;
 
 /**
  * Created by admin on 2018-02-04.
@@ -23,7 +14,7 @@ import java.io.IOException;
 @Configuration
 @EnableWebMvc
 @ComponentScan("spittr.web")
-public class WebConfig extends WebMvcConfigurerAdapter {
+public class WebConfig implements WebMvcConfigurer {
     @Bean
     public ViewResolver viewResolver(){
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
@@ -33,9 +24,14 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         resolver.setExposeContextBeansAsAttributes(true);
         return resolver;
     }
-
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry){
+        registry.addResourceHandler("/js/**")
+                .addResourceLocations("classpath:/js/");
     }
 }

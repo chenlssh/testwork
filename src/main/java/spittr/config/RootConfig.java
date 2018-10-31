@@ -24,9 +24,9 @@ public class RootConfig {
     public DataSource dataSource(){
         DriverManagerDataSource ds = new DriverManagerDataSource();
         ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        ds.setUrl("jdbc:mysql://127.0.0.1:3306/clserp?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC");
-        ds.setUsername("root");
-        ds.setPassword("");
+        ds.setUrl("jdbc:mysql://127.0.0.1:3306/cls_weeklyreport?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC");
+        ds.setUsername("clstest");
+        ds.setPassword("clstest");
         return ds;
     }
 

@@ -9,7 +9,7 @@
     </resultMap>
 
     <select id="findByUserName" resultMap="UserResultMap"  >
-         select * from cls_user where userName  = #{userName}
+         select * from user where userName  = #{userName}
     </select>
     <insert id="saveUser" >
         INSERT cls_user(userName,passWord,nickName) VALUE (#{userName},#{passWord},#{nickName})

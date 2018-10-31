@@ -1,3 +1,4 @@
+-- 数据库:账号/密码: clstest/clstest
 DROP TABLE IF EXISTS Spittle;
 create table Spitter
 (
@@ -94,4 +95,6 @@ create table user(
 	userName	varchar(20) not null comment '用户名',
 	password	varchar(50) not null ,
 	nickName varchar(100) not null comment '昵称'
-)
+);
+insert into user(userName, password, nickName)
+values ('chenlongshun','123456','陈隆顺');

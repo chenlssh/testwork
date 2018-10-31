@@ -9,6 +9,8 @@ public class User {
     private String passWord;
     private String nickName;
 
+    public User(){ }
+
     public long getId() {
         return id;
     }
