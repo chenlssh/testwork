@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" charset="utf-8">
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap/js/bootstrap.min.js"></script>
     <title>用户欢迎界面</title>
 </head>
 <body>
@@ -21,7 +21,7 @@
     <%--请选择要使用的功能：<a href="vireReport">记录查看</a>--%>
     <nav class="navbar navbar-default" role="navigation">
         <div class="text-center">
-            <h3>Welcome ,<c:out value="${user.nickName}" /></h3>
+            <h3>Welcome,<c:out value="${user.nickName}" /></h3>
         </div>
         <div class="container-fluid">
             <div class="navbar-header">

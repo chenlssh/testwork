@@ -1,5 +1,7 @@
 package spittr.web;
 
+import org.apache.log4j.Layout;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -21,6 +23,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 @RequestMapping(value = "/login")
 public class LoginController {
 
+    private static Logger logger = Logger.getLogger(LoginController.class);
     private UserRepositury userRepositury;
 
     @Autowired
@@ -28,21 +31,19 @@ public class LoginController {
         this.userRepositury = userRepositury;
     }
 
-
     @ResponseBody
-    @RequestMapping(method = POST)
+    @RequestMapping(method = POST,produces = "application/json; charset=utf-8")
     public String userLogin(@RequestBody User user,Model model){
-        System.out.println("开始登陆验证。。。");
+        logger.info("开始登陆验证。。。");
         User retuenUser = userRepositury.findByUserName(user.getUserName());
         if(retuenUser != null && !"".equals(retuenUser.getUserName()) ){
             if(user.getUserName().equals(retuenUser.getUserName())
                     && user.getPassWord().equals(retuenUser.getPassWord())){
                 System.out.println(retuenUser.getUserName()+"用户登陆！");
-                return "redirect:/spitter/"+retuenUser.getUserName();
+                return "{\"loginStatus\":\"1\",\"userName\":\""+retuenUser.getUserName()+"\"}";
             }
         }
-        model.addAttribute(user);
         System.out.println(user.getUserName()+"账号密码错误");
-        return "home";
+        return "{\"loginStatus\":\"0\",\"userName\":\"0\"}";
     }
 }

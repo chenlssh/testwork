@@ -22,6 +22,7 @@ public class UserImpl implements UserRepositury {
 
     public User findByUserName(String userName){
         SqlSession sqlSession = sqlSessionFactory.openSession();
+//        sqlSession.getMapper(UserRepositury.class).findByUserName()
         User user = sqlSession.selectOne("spittr.data.UserRepositury.findByUserName",userName);
         return  user;
     }

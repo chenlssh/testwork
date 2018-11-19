@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import spittr.data.UserRepositury;
 import spittr.model.Spitter;
 import spittr.data.SpitterRepository;
@@ -39,9 +40,9 @@ public class SpitterController {
         userRepositury.saveUser(user);
         return "redirect:/spitter/"+user.getUserName();
     }
-
+//RequestParam
     @RequestMapping(value = "/{userName}",method = GET)
-    public String showSpitterProfile(@PathVariable("userName") String userName, Model model){
+    public String showSpitterProfile(@PathVariable("userName") String userName,Model model){
         User user = userRepositury.findByUserName(userName);
         model.addAttribute(user);
         return "profile";
